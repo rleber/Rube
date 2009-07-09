@@ -1,3 +1,6 @@
 [submodule "lib/common"]
 	path = lib/common
 	url = /Users/richard/git/m/common/lib.git
+[submodule "src/common"]
+	path = src/common
+	url = /Users/richard/git/m/common/src.git
