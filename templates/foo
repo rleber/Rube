@@ -1,0 +1,8 @@
+foo
+<%= 'blurg' %>
+<%= 'blurble'
+%>
+<% z = 'barf' %>
+% z = 'farb'
+<%= z %>
+
