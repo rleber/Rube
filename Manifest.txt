@@ -1,0 +1,15 @@
+History.txt
+Manifest.txt
+PostInstall.txt
+README.rdoc
+Rakefile
+VERSION
+lib/rube
+lib/rube.rb
+script/console
+script/destroy
+script/generate
+templates/test1
+templates/test2
+test/test_helper.rb
+test/test_rube.rb
