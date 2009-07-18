@@ -57,7 +57,7 @@ require 'optparse'
 require 'erb'
 
 class Rube
-  VERSION = '0.0.1'
+  VERSION = %x{cat #{File.dirname(__FILE__)+'/../VERSION'}}.chomp
   
   # Class and procedure to provide context for evaluation of tasks: ruby inline code, requires, and erb templates
   class EvalContext
