@@ -1,32 +1,65 @@
 = rube
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/rleber/rube
 
 == DESCRIPTION:
 
-FIX (describe your package)
+  Rube -- Slightly smarter erb front-end
+
+  Rube allows you to apply erb to templates, interspersed with other ruby code, either as inline source or 	
+  as ruby files (e.g. requires). Rube can be invoked from the command line as a command in the form:
+
+    rube [options] task ...
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* Can be invoked from command line or via the Ruby API from within a Ruby script
+* Can process inline ruby code, ruby libraries, and erb templates
+* Information is persistent across tasks: e.g. subsequent templates can refer to results of previous tasks
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  Rube can be invoked from the command line as a command in the form:
+
+    rube [options] task ...
+
+  or as part of a ruby script, as in:
+
+    require 'rube'
+    rube = Rube.new
+    rube.add_task(:require, 'active_record')
+    rube.add_task(:template, 'foo')
+    rube.generate
+
+  In either case, tasks may be erb templates, ruby files, or inline ruby code. Each of the tasks is 
+  performed in the order specified and variables, constants etc. are preserved across tasks (including 
+  local variables) so that subsequent tasks can refer to the the results of earlier tasks. This makes it 
+  simpler to use erb templates against arbitrary data. For instance:
+
+    rube -r active_support -r yaml -e "document=YAML.load(IO.read('document.yml))" --trim 2 --stdin convert_to_textile.erb
+
+  would process the template on stdin followed by the template in convert_to_textile.erb, having already 
+  loaded the active_support and yaml libraries, and having loaded the YAML file document.yml and parsed it 
+  into a Ruby variable named document, where the information could easily be referred to in the template. 
+  This all would be done at erb trim level 2.
+
+  See rdoc or source for more information, or type the command:
+
+    rube --help
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* None
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install rube
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Richard LeBer
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

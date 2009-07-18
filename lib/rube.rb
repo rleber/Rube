@@ -6,7 +6,7 @@
 #   Rube allows you to apply erb to templates, interspersed with other ruby code, either as inline source or as 
 #   ruby files (e.g. requires). Rube can be invoked from the command line as a command in the form:
 #
-#     ruby [options] task ...
+#     rube [options] task ...
 
 #   or as part of a ruby script, as in:
 #
